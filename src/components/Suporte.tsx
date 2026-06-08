@@ -6,7 +6,7 @@ import { links } from "@/lib/config";
 export default function Suporte() {
   return (
     <section className="relative py-20 lg:py-28 bg-deep grain overflow-hidden">
-      <div className="aurora bg-orange/40 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30" aria-hidden />
+      <div className="aurora bg-orange/25 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 lg:px-8 text-center">
         <motion.div

@@ -70,8 +70,7 @@ export default function Plataforma() {
       id="plataforma"
       className="relative py-24 lg:py-36 bg-deep grain overflow-hidden"
     >
-      <div className="aurora bg-deep-3 -top-40 -left-40 opacity-40" aria-hidden />
-      <div className="aurora bg-orange/30 -bottom-40 -right-40 opacity-30" aria-hidden />
+      <div className="aurora bg-orange/25 -bottom-40 -right-40" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div

@@ -7,12 +7,7 @@ import { links } from "@/lib/config";
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-deep grain">
-      <div className="aurora bg-deep-3 -top-32 -left-32" aria-hidden />
-      <div className="aurora bg-orange/40 -bottom-40 -right-40" aria-hidden />
-      <div
-        className="aurora bg-deep-2 top-1/3 left-1/2 -translate-x-1/2 opacity-30"
-        aria-hidden
-      />
+      <div className="aurora bg-orange/30 -bottom-40 -right-40" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 pt-36 pb-24 lg:pt-44 lg:pb-32">
         <div className="grid lg:grid-cols-12 gap-12 items-center">

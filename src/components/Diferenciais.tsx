@@ -6,8 +6,7 @@ import { diferenciais, links } from "@/lib/config";
 export default function Diferenciais() {
   return (
     <section className="relative py-24 lg:py-36 bg-deep grain overflow-hidden">
-      <div className="aurora bg-deep-3 top-0 left-0 opacity-40" aria-hidden />
-      <div className="aurora bg-orange/30 bottom-0 right-0 opacity-30" aria-hidden />
+      <div className="aurora bg-gold/20 bottom-0 right-0" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div
