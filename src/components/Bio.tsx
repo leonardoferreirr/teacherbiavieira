@@ -2,14 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-const milestones = [
-  { y: "18 anos", t: "Decide se mudar para Londres atrás de fluência real." },
-  { y: "5 anos", t: "Vive em Londres aprendendo o idioma na pele." },
-  { y: "Certificações", t: "EVENDINE College e RICHMOND College." },
-  { y: "Letras", t: "Formada pela Universidade Anhembi-Morumbi." },
-  { y: "Empresas", t: "Ensinou inglês na Google, Facebook, LinkedIn e Renault." },
-];
+import { bioData, links } from "@/lib/config";
 
 export default function Bio() {
   return (
@@ -41,7 +34,7 @@ export default function Bio() {
                   Teacher Bia
                 </div>
                 <div className="font-display text-deep text-lg leading-tight">
-                  Anos de Londres viraram método.
+                  De Londres a Sacramento, virou método.
                 </div>
               </div>
             </div>
@@ -60,25 +53,20 @@ export default function Bio() {
               Conheça a Teacher
             </div>
             <h2 className="font-display text-4xl lg:text-5xl text-deep font-light leading-[1.1]">
-              A história por trás do{" "}
-              <span className="italic text-orange">método Bia Vieira</span>.
+              A história por trás da{" "}
+              <span className="italic text-orange">Bia Vieira</span>.
             </h2>
-            <p className="mt-6 text-lg text-ink-soft leading-relaxed">
-              Aos 18 anos, a Bia tomou uma decisão ousada: se mudar pra
-              Londres. Foram cinco anos morando lá, aprendendo o idioma na
-              prática e entendendo profundamente as dificuldades de quem está
-              começando do zero. Foi dessa vivência que nasceu o método.
-            </p>
-            <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-              Certificada pelo EVENDINE College e RICHMOND College, formada em
-              Letras pela Universidade Anhembi-Morumbi, a Bia também ensinou
-              inglês em grandes empresas como Google, Facebook, LinkedIn e
-              Renault, e atuou como vice-diretora pedagógica em escolas de
-              idiomas.
-            </p>
+
+            <div className="mt-6 space-y-4 text-ink-soft leading-relaxed">
+              {bioData.paragraphs.map((p, i) => (
+                <p key={i} className={i === 0 ? "text-lg" : ""}>
+                  {p}
+                </p>
+              ))}
+            </div>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-3">
-              {milestones.map((m) => (
+              {bioData.milestones.map((m) => (
                 <div
                   key={m.y}
                   className="rounded-2xl bg-cream-warm p-4 ring-1 ring-deep/8"
@@ -91,6 +79,20 @@ export default function Bio() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-10">
+              <a
+                href={links.whatsapp}
+                target="_blank"
+                rel="noopener"
+                className="btn-primary"
+              >
+                Quero Aprender Com a Bia
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
             </div>
           </motion.div>
         </div>

@@ -53,11 +53,16 @@ export default function Metodologia() {
             </ul>
 
             <div className="mt-10">
-              <a href="#planos" className="btn-primary">
-                Ver planos
+              <a
+                href={links.whatsapp}
+                target="_blank"
+                rel="noopener"
+                className="btn-primary"
+              >
+                Eu Quero Começar
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path
-                    d="M12 5v14M5 12l7 7 7-7"
+                    d="M5 12h14M13 6l6 6-6 6"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"

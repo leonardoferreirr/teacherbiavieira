@@ -74,12 +74,12 @@ export default function NavBar() {
               Sou aluno
             </a>
             <a
-              href={links.whatsappVendas}
+              href={links.whatsapp}
               target="_blank"
               rel="noopener"
               className="btn-primary text-sm"
             >
-              Quero Estudar
+              Eu Quero Começar
             </a>
           </div>
 
@@ -124,12 +124,12 @@ export default function NavBar() {
                   Sou aluno
                 </a>
                 <a
-                  href={links.whatsappVendas}
+                  href={links.whatsapp}
                   target="_blank"
                   rel="noopener"
                   className="btn-primary text-sm"
                 >
-                  Quero Estudar
+                  Eu Quero Começar
                 </a>
               </li>
             </ul>

@@ -7,24 +7,15 @@ import { links } from "@/lib/config";
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-deep grain">
-      {/* Auroras de fundo */}
-      <div
-        className="aurora bg-deep-3 -top-32 -left-32"
-        aria-hidden
-      />
-      <div
-        className="aurora bg-orange/40 -bottom-40 -right-40"
-        aria-hidden
-      />
+      <div className="aurora bg-deep-3 -top-32 -left-32" aria-hidden />
+      <div className="aurora bg-orange/40 -bottom-40 -right-40" aria-hidden />
       <div
         className="aurora bg-deep-2 top-1/3 left-1/2 -translate-x-1/2 opacity-30"
         aria-hidden
       />
 
-      {/* Conteúdo */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 pt-36 pb-24 lg:pt-44 lg:pb-32">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Texto */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -33,15 +24,15 @@ export default function Hero() {
           >
             <div className="eyebrow text-gold mb-6">
               <span className="h-px w-8 bg-gold/60" />
-              Bia Vieira Academy
+              Aprender inglês nunca foi tão fácil e divertido
             </div>
 
             <h1 className="font-display text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl font-light text-cream">
-              Descubra o método que já fez
+              Descubra o método que já ajudou
               <span className="block italic font-normal text-gold">
                 centenas de pessoas
               </span>
-              falarem inglês com confiança.
+              a falar inglês com confiança.
             </h1>
 
             <p className="mt-8 text-lg lg:text-xl text-cream/75 max-w-xl leading-relaxed font-light">
@@ -52,28 +43,21 @@ export default function Hero() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="#planos"
+                href={links.whatsapp}
+                target="_blank"
+                rel="noopener"
                 className="btn-primary"
-                /* ORIGINAL: label era "FALAR COM ATENDENTE" */
               >
-                Quero Estudar Agora
+                Eu Quero Começar
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 12h14M13 6l6 6-6 6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
               <a
-                href={links.whatsappVendas}
-                target="_blank"
-                rel="noopener"
+                href="#metodologia"
                 className="btn-ghost btn-on-dark"
               >
-                Falar no WhatsApp
+                Conhecer o Método
               </a>
             </div>
 
@@ -87,7 +71,7 @@ export default function Hero() {
                     />
                   ))}
                 </div>
-                <span>+ 500 alunos ativos</span>
+                <span>Centenas de alunos ativos</span>
               </div>
               <div className="hidden sm:flex items-center gap-2">
                 <span className="text-gold">★★★★★</span>
@@ -96,7 +80,6 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Imagem / mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -116,15 +99,12 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Floating cards */}
               <motion.div
                 className="absolute -left-6 top-1/3 glass rounded-2xl px-4 py-3 text-cream float-y"
                 style={{ animationDelay: "0s" }}
               >
                 <div className="text-xs text-cream/60">Hoje</div>
-                <div className="text-sm font-semibold">
-                  +12 exercícios feitos
-                </div>
+                <div className="text-sm font-semibold">+12 exercícios feitos</div>
               </motion.div>
 
               <motion.div
@@ -132,16 +112,13 @@ export default function Hero() {
                 style={{ animationDelay: "1.5s" }}
               >
                 <div className="text-xs text-cream/60">Speaking</div>
-                <div className="text-sm font-semibold">
-                  Pronúncia 94% ✓
-                </div>
+                <div className="text-sm font-semibold">Pronúncia 94% ✓</div>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Wave divider */}
       <div
         className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-cream/5 pointer-events-none"
         aria-hidden

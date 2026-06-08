@@ -28,8 +28,7 @@ export default function Oferta() {
             <span className="italic text-orange">por tempo limitado</span>.
           </h2>
           <p className="mt-6 text-lg text-ink-soft leading-relaxed">
-            Um valor único, com tudo incluído. Sem letra miúda, sem pegadinha,
-            sem upgrade depois.
+            Aproveite. Tudo incluso, sem letra miúda, sem upgrade depois.
           </p>
         </motion.div>
 
@@ -56,8 +55,13 @@ export default function Oferta() {
               </div>
 
               <div className="mt-10">
+                <div className="mb-1 text-cream/55 text-sm">
+                  de{" "}
+                  <span className="line-through">{p.priceFrom}</span>
+                  {" "}por
+                </div>
                 <div className="flex items-baseline gap-2 mb-8">
-                  <span className="font-display text-6xl lg:text-7xl font-light text-cream">
+                  <span className="font-display text-5xl lg:text-6xl font-light text-cream">
                     {p.price}
                   </span>
                   <span className="text-base text-cream/65">{p.period}</span>
@@ -82,7 +86,7 @@ export default function Oferta() {
                 </a>
 
                 <p className="mt-4 text-center text-xs text-cream/50">
-                  Pagamento seguro pela Hotmart
+                  Falar com a equipe pelo WhatsApp · Resposta rápida
                 </p>
               </div>
             </div>

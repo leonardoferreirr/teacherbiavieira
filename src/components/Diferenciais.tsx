@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { diferenciais } from "@/lib/config";
+import { diferenciais, links } from "@/lib/config";
 
 export default function Diferenciais() {
   return (
@@ -11,67 +10,70 @@ export default function Diferenciais() {
       <div className="aurora bg-orange/30 bottom-0 right-0 opacity-30" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Imagem decorativa */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5"
-          >
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-gold/30 to-orange/20 blur-3xl rounded-full" />
-              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden glass shadow-2xl">
-                <Image
-                  src="/img/img-02.webp"
-                  alt="Estudando com a Teacher Bia"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 80vw, 35vw"
-                />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div className="eyebrow text-gold mb-5 justify-center">
+            <span className="h-px w-8 bg-gold/60" />
+            Diferenciais
+            <span className="h-px w-8 bg-gold/60" />
+          </div>
+          <h2 className="font-display text-4xl lg:text-5xl text-cream font-light leading-[1.1]">
+            Por que escolher a{" "}
+            <span className="italic text-gold">Bia Vieira Academy?</span>
+          </h2>
+          <p className="mt-6 text-lg text-cream/70 leading-relaxed">
+            Descubra os diferenciais exclusivos que fazem nossos alunos
+            ganharem fluência de verdade.
+          </p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+          {diferenciais.map((d, i) => (
+            <motion.div
+              key={d.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              className="glass rounded-2xl p-6 hover:bg-white/10 transition-colors"
+            >
+              <div className="inline-flex p-2 rounded-xl bg-gold/15 text-gold mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Conteúdo */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 text-cream"
-          >
-            <div className="eyebrow text-gold mb-5">
-              <span className="h-px w-8 bg-gold/60" />
-              Por que escolher
-            </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-light leading-[1.1] mb-8">
-              Por que escolher a{" "}
-              <span className="italic text-gold">Bia Vieira Academy?</span>
-            </h2>
-
-            <div className="grid sm:grid-cols-2 gap-5">
-              {diferenciais.map((d, i) => (
-                <motion.div
-                  key={d.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="glass rounded-2xl p-6"
-                >
-                  <h3 className="font-display text-xl text-cream font-medium mb-2">
-                    {d.title}
-                  </h3>
-                  <p className="text-cream/65 text-[0.95rem] leading-relaxed">
-                    {d.text}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+              <h3 className="font-display text-lg text-cream font-medium mb-2 leading-tight">
+                {d.title}
+              </h3>
+              <p className="text-cream/65 text-sm leading-relaxed">{d.text}</p>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <a
+            href={links.whatsapp}
+            target="_blank"
+            rel="noopener"
+            className="btn-primary"
+          >
+            Eu Quero Começar
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
