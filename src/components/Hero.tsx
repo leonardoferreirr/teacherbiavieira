@@ -7,7 +7,7 @@ import { links } from "@/lib/config";
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-deep grain">
-      <div className="aurora bg-orange/30 -bottom-40 -right-40" aria-hidden />
+      <div className="aurora text-orange/40 -bottom-40 -right-40" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8 pt-36 pb-24 lg:pt-44 lg:pb-32">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -94,21 +94,15 @@ export default function Hero() {
                 />
               </div>
 
-              <motion.div
-                className="absolute -left-6 top-1/3 glass rounded-2xl px-4 py-3 text-cream float-y"
-                style={{ animationDelay: "0s" }}
-              >
+              <div className="absolute -left-6 top-1/3 bg-deep/80 ring-1 ring-cream/15 rounded-2xl px-4 py-3 text-cream shadow-lg">
                 <div className="text-xs text-cream/60">Hoje</div>
                 <div className="text-sm font-semibold">+12 exercícios feitos</div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                className="absolute -right-4 bottom-12 glass rounded-2xl px-4 py-3 text-cream float-y"
-                style={{ animationDelay: "1.5s" }}
-              >
+              <div className="absolute -right-4 bottom-12 bg-deep/80 ring-1 ring-cream/15 rounded-2xl px-4 py-3 text-cream shadow-lg">
                 <div className="text-xs text-cream/60">Speaking</div>
                 <div className="text-sm font-semibold">Pronúncia 94% ✓</div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>

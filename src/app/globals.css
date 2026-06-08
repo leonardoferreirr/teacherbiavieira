@@ -42,16 +42,13 @@
 }
 
 @layer components {
+  /* Glass sem backdrop-filter, usando bg semi-opaco. Performance > efeito blur real. */
   .glass {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.14);
   }
   .glass-light {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(3, 53, 47, 0.08);
   }
 
@@ -127,45 +124,13 @@
   }
 }
 
-@keyframes marquee-x {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.marquee-track {
-  animation: marquee-x 45s linear infinite;
-}
-.marquee-pause:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
-.float-y { animation: float-y 6s ease-in-out infinite; }
-
+/* Aurora simplificada: degradê radial sem filter:blur. Sem GPU stress. */
 .aurora {
   position: absolute;
-  width: 45vmax;
-  height: 45vmax;
+  width: 50vmax;
+  height: 50vmax;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.4;
+  opacity: 0.35;
   pointer-events: none;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-}
-
-/* No mobile, reduzir ainda mais para evitar crash de GPU */
-@media (max-width: 768px) {
-  .aurora {
-    filter: blur(40px);
-    opacity: 0.3;
-    width: 70vmax;
-    height: 70vmax;
-  }
-  .glass, .glass-light {
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
+  background: radial-gradient(circle, currentColor 0%, transparent 70%);
 }

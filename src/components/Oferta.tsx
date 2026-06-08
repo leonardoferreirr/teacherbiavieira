@@ -8,7 +8,7 @@ const p = pricing.plano;
 export default function Oferta() {
   return (
     <section id="planos" className="relative py-24 lg:py-36 bg-cream overflow-hidden">
-      <div className="aurora bg-orange/15 -top-32 left-1/2 -translate-x-1/2 opacity-50" aria-hidden />
+      <div className="aurora text-orange/25 -top-32 left-1/2 -translate-x-1/2" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
         <motion.div

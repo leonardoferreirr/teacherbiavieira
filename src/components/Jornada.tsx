@@ -1,68 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { journey } from "@/lib/config";
 
-function StackCard({
-  i,
-  total,
-  progress,
-  item,
-}: {
-  i: number;
-  total: number;
-  progress: ReturnType<typeof useScroll>["scrollYProgress"];
-  item: (typeof journey)[number];
-}) {
-  // Cada card entra em sua faixa: i / total a (i+1)/total
-  const start = i / total;
-  const end = (i + 1) / total;
-  const y = useTransform(progress, [start, end], [80, 0]);
-  const scale = useTransform(progress, [start, end], [0.94, 1]);
-  const opacity = useTransform(progress, [start - 0.02, start, end], [0, 1, 1]);
-
-  return (
-    <motion.div
-      style={{ y, scale, opacity }}
-      className="sticky top-24 lg:top-32"
-    >
-      <div className="relative rounded-[2rem] overflow-hidden bg-cream shadow-[0_30px_80px_-30px_rgba(3,53,47,0.35)] ring-1 ring-deep/8">
-        <div className="grid lg:grid-cols-12 gap-0">
-          <div className="lg:col-span-7 p-8 lg:p-14">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="font-display text-5xl lg:text-6xl text-orange font-light leading-none">
-                {item.n}
-              </span>
-              <span className="text-ink-mute text-sm uppercase tracking-[0.2em]">
-                Passo {i + 1} de {total}
-              </span>
-            </div>
-            <h3 className="font-display text-3xl lg:text-4xl text-deep leading-tight mb-4">
-              {item.title}
-            </h3>
-            <p className="text-lg text-ink-soft leading-relaxed max-w-md">
-              {item.text}
-            </p>
-          </div>
-          <div className="lg:col-span-5 bg-gradient-to-br from-deep to-deep-2 p-10 lg:p-14 flex items-center justify-center">
-            <div className="text-cream/70 font-display text-[10rem] leading-none italic select-none">
-              {item.n}
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 export default function Jornada() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
   return (
     <section id="jornada" className="relative bg-cream-warm py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -83,23 +24,35 @@ export default function Jornada() {
           </p>
         </div>
 
-        {/* Container alto pro sticky stack acontecer */}
-        <div
-          ref={containerRef}
-          className="relative"
-          style={{ height: `${journey.length * 90}vh` }}
-        >
-          <div className="space-y-8">
-            {journey.map((item, i) => (
-              <StackCard
-                key={item.n}
-                i={i}
-                total={journey.length}
-                progress={scrollYProgress}
-                item={item}
-              />
-            ))}
-          </div>
+        <div className="grid lg:grid-cols-2 gap-5 lg:gap-6">
+          {journey.map((item, i) => (
+            <motion.article
+              key={item.n}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: (i % 2) * 0.1 }}
+              className="relative overflow-hidden rounded-3xl bg-cream ring-1 ring-deep/8 shadow-[0_20px_60px_-30px_rgba(3,53,47,0.3)] p-8 lg:p-10 hover:-translate-y-1 transition-transform duration-500"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-display text-5xl text-orange font-light leading-none">
+                  {item.n}
+                </span>
+                <span className="text-ink-mute text-xs uppercase tracking-[0.18em]">
+                  Passo {i + 1} de {journey.length}
+                </span>
+              </div>
+              <h3 className="font-display text-2xl lg:text-3xl text-deep leading-tight mb-3">
+                {item.title}
+              </h3>
+              <p className="text-ink-soft leading-relaxed">
+                {item.text}
+              </p>
+
+              {/* faixa decorativa */}
+              <div className="absolute top-0 right-0 w-32 h-32 -translate-y-1/4 translate-x-1/4 bg-gradient-to-br from-orange/10 to-transparent rounded-full pointer-events-none" />
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
