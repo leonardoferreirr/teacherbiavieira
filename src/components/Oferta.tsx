@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { pricing, links } from "@/lib/config";
 
-const plans = [pricing.basico, pricing.premium];
+const p = pricing.plano;
 
 export default function Oferta() {
   return (
@@ -20,7 +20,7 @@ export default function Oferta() {
         >
           <div className="eyebrow text-orange mb-5 justify-center">
             <span className="h-px w-8 bg-orange/60" />
-            Planos
+            Investimento
             <span className="h-px w-8 bg-orange/60" />
           </div>
           <h2 className="font-display text-4xl lg:text-5xl text-deep font-light leading-[1.1]">
@@ -28,98 +28,86 @@ export default function Oferta() {
             <span className="italic text-orange">por tempo limitado</span>.
           </h2>
           <p className="mt-6 text-lg text-ink-soft leading-relaxed">
-            Escolha o plano que faz sentido pra você. Ambos com a metodologia,
-            a plataforma e o feedback direto da Teacher Bia.
+            Um valor único, com tudo incluído. Sem letra miúda, sem pegadinha,
+            sem upgrade depois.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-          {plans.map((p, i) => {
-            const isHighlight = "highlight" in p && p.highlight;
-            return (
-              <motion.article
-                key={p.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
-                className={`relative rounded-[2rem] p-8 lg:p-10 transition-all duration-500 ${
-                  isHighlight
-                    ? "bg-deep text-cream shadow-[0_40px_80px_-30px_rgba(3,53,47,0.55)] lg:-translate-y-3 ring-1 ring-gold/30"
-                    : "bg-cream-warm text-deep ring-1 ring-deep/8"
-                }`}
-              >
-                {isHighlight && "badge" in p && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-orange text-white text-xs font-semibold tracking-wider uppercase">
-                    {p.badge}
-                  </span>
-                )}
+        <motion.article
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="relative max-w-3xl mx-auto"
+        >
+          <div className="absolute -inset-6 bg-gradient-to-tr from-orange/20 to-gold/15 rounded-[3rem] blur-3xl" />
 
-                <h3
-                  className={`font-display text-3xl font-medium mb-1 ${
-                    isHighlight ? "text-cream" : "text-deep"
-                  }`}
-                >
+          <div className="relative grid lg:grid-cols-12 gap-0 rounded-[2.2rem] overflow-hidden bg-deep text-cream shadow-[0_50px_100px_-30px_rgba(3,53,47,0.55)] ring-1 ring-gold/20">
+            {/* Lado esquerdo: preço + CTA */}
+            <div className="lg:col-span-5 p-10 lg:p-12 bg-gradient-to-br from-deep to-deep-2 flex flex-col justify-between">
+              <div>
+                <span className="inline-flex px-3 py-1 rounded-full bg-orange text-white text-[0.7rem] font-semibold tracking-[0.16em] uppercase mb-6">
+                  {p.badge}
+                </span>
+                <h3 className="font-display text-3xl font-medium leading-tight text-cream">
                   {p.title}
                 </h3>
-                <p
-                  className={`text-sm mb-8 ${
-                    isHighlight ? "text-cream/70" : "text-ink-soft"
-                  }`}
-                >
-                  {p.subtitle}
-                </p>
+                <p className="mt-2 text-cream/65 text-sm">{p.subtitle}</p>
+              </div>
 
+              <div className="mt-10">
                 <div className="flex items-baseline gap-2 mb-8">
-                  <span className="font-display text-5xl lg:text-6xl font-light">
+                  <span className="font-display text-6xl lg:text-7xl font-light text-cream">
                     {p.price}
                   </span>
-                  <span
-                    className={`text-base ${
-                      isHighlight ? "text-cream/65" : "text-ink-mute"
-                    }`}
-                  >
-                    {p.period}
-                  </span>
+                  <span className="text-base text-cream/65">{p.period}</span>
                 </div>
 
                 <a
                   href={p.href}
                   target="_blank"
                   rel="noopener"
-                  className={`btn-primary w-full ${
-                    isHighlight ? "" : "!bg-deep !shadow-[0_8px_24px_-8px_rgba(3,53,47,0.5)] hover:!bg-deep-2"
-                  }`}
-                  /* ORIGINAL: label era "FALAR COM ATENDENTE" */
+                  className="btn-primary w-full"
                 >
                   {p.cta}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </a>
 
-                <ul className="mt-8 space-y-3">
-                  {p.features.map((f) => (
-                    <li
-                      key={f}
-                      className={`flex items-start gap-3 text-[0.95rem] ${
-                        isHighlight ? "text-cream/85" : "text-ink-soft"
-                      }`}
-                    >
-                      <span
-                        className={`mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full text-xs ${
-                          isHighlight
-                            ? "bg-gold text-deep"
-                            : "bg-deep text-cream"
-                        }`}
-                      >
-                        ✓
-                      </span>
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.article>
-            );
-          })}
-        </div>
+                <p className="mt-4 text-center text-xs text-cream/50">
+                  Pagamento seguro pela Hotmart
+                </p>
+              </div>
+            </div>
+
+            {/* Lado direito: features */}
+            <div className="lg:col-span-7 p-10 lg:p-12 bg-deep">
+              <div className="text-xs uppercase tracking-[0.18em] text-gold mb-6">
+                O que está incluído
+              </div>
+              <ul className="space-y-4">
+                {p.features.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-start gap-3 text-cream/85 text-[0.97rem]"
+                  >
+                    <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-gold text-deep text-sm font-semibold shrink-0">
+                      ✓
+                    </span>
+                    <span className="leading-relaxed">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.article>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -129,15 +117,18 @@ export default function Oferta() {
           className="mt-12 text-center"
         >
           <p className="text-ink-soft mb-4">
-            Tá em dúvida sobre qual plano é o seu?
+            Quer tirar dúvidas antes de matricular?
           </p>
           <a
-            href={links.whatsappVendas}
+            href={links.whatsapp}
             target="_blank"
             rel="noopener"
             className="btn-ghost"
           >
-            Falar com nossa equipe no WhatsApp
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.4 4.7 2.7 1.1 3.2.9 3.8.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.1-1.4-.1-.1-.2-.2-.5-.3z" />
+            </svg>
+            Falar com a Teacher Bia no WhatsApp
           </a>
         </motion.div>
       </div>

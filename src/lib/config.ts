@@ -7,15 +7,17 @@
  */
 
 export const links = {
-  // Hotmart: 2 planos identificados via preço próximo no HTML original
-  // R$ 170,43 = plano básico (1 aula semanal)
-  hotmartBasico: "https://pay.hotmart.com/T94784082H",
-  // R$ 341,48 = plano premium (com aulão quinzenal)
-  hotmartPremium: "https://pay.hotmart.com/V94784442Y",
+  // Único checkout Hotmart (confirmado por Leonardo)
+  hotmart: "https://pay.hotmart.com/T94784082H",
 
-  // WhatsApp
-  whatsappVendas: "https://wa.me/message/KIIZGVUEIKI5N1",
-  whatsappSuporte: "https://wa.me/message/I4GPS6CCNQSBO1",
+  // Único WhatsApp para vendas + suporte (confirmado por Leonardo)
+  whatsapp: "https://wa.me/message/I4GPS6CCNQSBO1",
+
+  // Aliases para retrocompatibilidade dos componentes
+  get hotmartBasico() { return this.hotmart; },
+  get hotmartPremium() { return this.hotmart; },
+  get whatsappVendas() { return this.whatsapp; },
+  get whatsappSuporte() { return this.whatsapp; },
 
   // Vídeo de apresentação (YouTube embed do site atual)
   youtubeId: "ecBtLiwkvfo",
@@ -26,41 +28,24 @@ export const links = {
 } as const;
 
 export const pricing = {
-  basico: {
-    title: "Plano Essencial",
-    subtitle: "Ideal para quem está começando a jornada",
+  plano: {
+    title: "Bia Vieira Academy",
+    subtitle: "Acesso completo à metodologia e à plataforma",
     price: "R$ 170,43",
     period: "/ mês",
-    href: links.hotmartBasico,
-    cta: "Quero Estudar Agora",
+    href: links.hotmart,
+    cta: "Quero Começar Agora",
+    badge: "Matrículas abertas",
     features: [
-      "Teste de nivelamento preciso",
-      "Plano de estudo personalizado",
-      "Acesso à plataforma Flexge 24/7",
+      "Teste de nivelamento preciso pra começar no ponto certo",
+      "Plano de estudo personalizado pro seu nível e objetivo",
+      "Acesso à plataforma Flexge 24/7, no computador ou celular",
       "Mais de 31.000 exercícios interativos",
-      "Feedback personalizado da Teacher Bia",
-      "Plantão de dúvidas",
-      "1 aula semanal em grupo focada em conversação",
+      "Feedback personalizado da Teacher Bia dentro da plataforma",
+      "Plantão de dúvidas sempre que travar",
+      "Aulas e aulões ao vivo focados em conversação",
+      "Certificação por nível, baseada no CEFR",
     ],
-    highlight: false,
-  },
-  premium: {
-    title: "Plano Premium",
-    subtitle: "Para quem quer acelerar a fluência",
-    price: "R$ 341,48",
-    period: "/ mês",
-    href: links.hotmartPremium,
-    cta: "Quero o Premium",
-    features: [
-      "Tudo do Plano Essencial",
-      "Aulões quinzenais ao vivo",
-      "Acompanhamento mais próximo",
-      "Plantão estendido de dúvidas",
-      "Acesso a conteúdos exclusivos da Teacher Bia",
-      "Suporte prioritário",
-    ],
-    highlight: true,
-    badge: "Mais escolhido",
   },
 };
 
